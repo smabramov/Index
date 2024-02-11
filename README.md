@@ -13,7 +13,7 @@ SELECT round (sum(index_length) / sum(data_length) * 100) AS '% Index'
 FROM INFORMATION_SCHEMA.TABLES;
 
 ```
-![]()
+![1](https://github.com/smabramov/Index/blob/490bd22e7f152c9534e8a1ae98cc6e44ad380942/jpg/1.jpg)
 
 ---
 
@@ -30,7 +30,7 @@ where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and
 
 ```
 
-![]()
+![2](https://github.com/smabramov/Index/blob/490bd22e7f152c9534e8a1ae98cc6e44ad380942/jpg/2.jpg)
 
 Колличество циклов 642000, затраченное время 4821 ms
 
@@ -47,9 +47,9 @@ where date(p.payment_date) = '2005-07-30' and p.customer_id = c.customer_id;
 
 ```
 
-![]()
+![3](https://github.com/smabramov/Index/blob/490bd22e7f152c9534e8a1ae98cc6e44ad380942/jpg/3.jpg)
 
-В результате колличество циклов сократилось до 634 и затраченное время составило 5.94 ms. 
+В результате колличество циклов сократилось до 634 и затраченное время составило 5.89 ms. 
 
 ```
 CREATE index day_payment on payment(payment_date);
@@ -58,7 +58,7 @@ CREATE index day_payment on payment(payment_date);
 Создан индекс даты платежа.
 
 
-![]()
+![4](https://github.com/smabramov/Index/blob/490bd22e7f152c9534e8a1ae98cc6e44ad380942/jpg/4.jpg)
 
 Переделан запрос с объединением таблиц.
 
@@ -74,7 +74,9 @@ GROUP BY c.customer_id;
 
 ```
 
-![]()
+![5](https://github.com/smabramov/Index/blob/490bd22e7f152c9534e8a1ae98cc6e44ad380942/jpg/5.jpg)
+
+![6](https://github.com/smabramov/Index/blob/490bd22e7f152c9534e8a1ae98cc6e44ad380942/jpg/6.jpg)
 
 
 В результате колличество циклов  16044 и затраченное время составило 0.493 ms. 
